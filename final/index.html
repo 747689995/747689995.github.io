@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
@@ -9,9 +9,17 @@
     <meta name="screen-orientation" content="portrait">
     <title>大转盘</title>
     <link rel="stylesheet" href="./css/style.css">
+    <style type="text/css">
+        @media (max-width: 40rem) {
+            #main {
+                width: 100%;
+            }
+        }
+        
+    </style>
 </head>
 <body>
-<div class="m-ui-dial">
+<div id="main" class="m-ui-dial">
     <div id="js_pointer" class="pointer">
         <a class="btn" href="javascript:;" onclick="lottery.draw()"></a>
     </div>
@@ -35,7 +43,23 @@
     });
     lottery.on('end', function () {
         //console.log('中奖奖区：' + index);
-        alert("中奖后显示" + index);
+        switch(index)
+        {
+        case 0:
+          alert("恭喜您获得了50元话费");
+          break;
+        case 2:
+          alert("恭喜您获得了10元优惠券");
+          break;
+        case 4:
+          alert("恭喜您获得了20个Q币");
+          break;
+        case 6:
+          alert("恭喜您获得了5元优惠券");
+          break;
+        default:
+          alert("⊙﹏⊙好可怜，你的奖品被票君偷走了");
+        }
     });
 </script>
 </html>
